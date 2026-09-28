@@ -7,7 +7,9 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'pomodoro-secret-key-123'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pomodoro.db'
+app.config['instance_path'] = '/tmp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/pomodoro.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 login_manager = LoginManager(app)
